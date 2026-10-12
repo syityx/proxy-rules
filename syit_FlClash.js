@@ -39,7 +39,8 @@ function main(config) {
   build("🚀 节点选择",["⚡ 普通自动","🌐 普通节点","🛟 普通故障转移",...activeRegion,"DIRECT"]);
   build("🤖 Claude 专用",["🏠 美国家宽自动","🏠 全部家宽手动","⚡ 普通自动","DIRECT"]);
   build("🤖 AI 服务",["🇺🇸 美国节点","🚀 节点选择","⚡ 普通自动","DIRECT"]);
-  build("🔮 Polymarket",["🇺🇸 美国节点","🇯🇵 日本节点","🇹🇼 台湾节点","🇸🇬 新加坡节点","🌐 非香港自动","DIRECT"]);
+  // Use direct connection; Polymarket itself determines geographic eligibility.
+  build("🔮 Polymarket",["DIRECT","REJECT"]);
   build("💱 Bybit",["🇯🇵 日本节点","🇺🇸 美国节点","🇹🇼 台湾节点","🇸🇬 新加坡节点","🌐 非香港自动","DIRECT"]);
   const special={
     "📹 油管视频":["🚀 节点选择","🇯🇵 日本节点","DIRECT"],
