@@ -37,14 +37,14 @@ function main(config) {
   const valid=xs=>xs.filter((x,i)=> (x==="DIRECT"||x==="REJECT"||names.has(x)) && xs.indexOf(x)===i);
   const build=(name, options) => {const list=valid(options); if(list.length)add(select(name,list));};
   build("🚀 节点选择",["⚡ 普通自动","🌐 普通节点","🛟 普通故障转移",...activeRegion,"DIRECT"]);
-  build("🤖 Claude 专用",["🏠 美国家宽自动","🏠 全部家宽手动","⚡ 普通自动","DIRECT"]);
+  build("🤖 Claude 专用",["🏠 美国家宽自动","REJECT"]);
   build("🤖 AI 服务",["🇺🇸 美国节点","🚀 节点选择","⚡ 普通自动","DIRECT"]);
   // Polymarket defaults to Hong Kong group when available; fallback is DIRECT.
   build("🔮 Polymarket",["🇭🇰 香港节点","DIRECT","REJECT"]);
   build("💱 Bybit",["🇯🇵 日本节点","🇺🇸 美国节点","🇹🇼 台湾节点","🇸🇬 新加坡节点","🌐 非香港自动","DIRECT"]);
   const special={
-    "📹 油管视频":["🏠 美国家宽自动","🚀 节点选择","🇯🇵 日本节点","DIRECT"],
-    "🔍 谷歌服务":["🏠 美国家宽自动","🇯🇵 日本节点","🚀 节点选择","DIRECT"],
+    "📹 油管视频":["🚀 节点选择","REJECT"],
+    "🔍 谷歌服务":["🏠 美国家宽自动","REJECT"],
     "🐦 Twitter/X":["🇯🇵 日本节点","🇺🇸 美国节点","🚀 节点选择","DIRECT"],
     "Ⓜ️ 微软服务":["DIRECT","🚀 节点选择"],
     "📧 邮件服务":["⚡ 普通自动","DIRECT"],
@@ -65,7 +65,7 @@ function main(config) {
     "🤖 AI 服务":["openai.com","chatgpt.com","oaistatic.com","oaiusercontent.com","perplexity.ai","poe.com"],
     "📹 油管视频":["youtube.com","youtu.be","googlevideo.com","ytimg.com"],
     "🐦 Twitter/X":["x.com","twitter.com","twimg.com","t.co","pscp.tv","periscope.tv"],
-    "🔍 谷歌服务":["google.com","googleapis.com","gstatic.com","googleusercontent.com","ggpht.com","gmail.com","googlemail.com"],
+    "🔍 谷歌服务":["gemini.google.com","generativelanguage.googleapis.com","google.com","googleapis.com","gstatic.com","googleusercontent.com","ggpht.com","gmail.com","googlemail.com"],
     "🐱 代码托管":["github.com","githubusercontent.com","gitlab.com"],
     "📲 电报消息":["telegram.org","t.me"],
     "Ⓜ️ 微软服务":["microsoft.com","windows.com"],
