@@ -34,17 +34,20 @@ function main(config) {
   if(notHK.length) add(test("🌐 非香港自动",notHK));
   if(usHomes.length) add(test("🏠 美国家宽自动",usHomes));
   if(homes.length) add(select("🏠 全部家宽手动",homes));
-  const valid=xs=>xs.filter((x,i)=> (x==="DIRECT"||x==="REJECT"||names.has(x)) && xs.indexOf(x)===i);
+  // Reuse the airport's existing 自动选择 group; create it if absent.
+  const inheritedGroups = new Set((config["proxy-groups"]||[]).map(x=>x.name));
+  if (!inheritedGroups.has("自动选择") && nodes.length) add(test("自动选择",nodes));
+  const valid=xs=>xs.filter((x,i)=> (x==="DIRECT"||x==="REJECT"||names.has(x)||inheritedGroups.has(x)) && xs.indexOf(x)===i);
   const build=(name, options) => {const list=valid(options); if(list.length)add(select(name,list));};
   build("🚀 节点选择",["⚡ 普通自动","🌐 普通节点","🛟 普通故障转移",...activeRegion,"DIRECT"]);
   build("🤖 Claude 专用",["🏠 美国家宽自动","REJECT"]);
-  build("🤖 AI 服务",["🇺🇸 美国节点","🚀 节点选择","⚡ 普通自动","DIRECT"]);
+  build("🤖 AI 服务",["🇯🇵 日本节点","🇺🇸 美国节点","自动选择","⚡ 普通自动"]);
   // Polymarket defaults to Hong Kong group when available; fallback is DIRECT.
   build("🔮 Polymarket",["🇭🇰 香港节点","DIRECT","REJECT"]);
   build("💱 Bybit",["🇯🇵 日本节点","🇺🇸 美国节点","🇹🇼 台湾节点","🇸🇬 新加坡节点","🌐 非香港自动","DIRECT"]);
   const special={
     "📹 油管视频":["🚀 节点选择","🇯🇵 日本节点","DIRECT"],
-    "🔍 谷歌服务":["🇯🇵 日本节点","🚀 节点选择","DIRECT"],
+    "🔍 谷歌服务":["🇯🇵 日本节点","🇺🇸 美国节点","自动选择","⚡ 普通自动"],
     "🐦 Twitter/X":["🇯🇵 日本节点","🇺🇸 美国节点","🚀 节点选择","DIRECT"],
     "Ⓜ️ 微软服务":["DIRECT","🚀 节点选择"],
     "📧 邮件服务":["⚡ 普通自动","DIRECT"],
