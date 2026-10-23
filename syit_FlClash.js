@@ -43,8 +43,9 @@ function main(config) {
   build("🔮 Polymarket",["🇭🇰 香港节点","DIRECT","REJECT"]);
   build("💱 Bybit",["🇯🇵 日本节点","🇺🇸 美国节点","🇹🇼 台湾节点","🇸🇬 新加坡节点","🌐 非香港自动","DIRECT"]);
   const special={
-    "📹 油管视频":["🚀 节点选择","🇯🇵 日本节点","DIRECT"],
-    "🔍 谷歌服务":["🇯🇵 日本节点","🚀 节点选择","DIRECT"],
+    "📹 油管视频":["🏠 美国家宽自动","🚀 节点选择","🇯🇵 日本节点","DIRECT"],
+    "🔍 谷歌服务":["🏠 美国家宽自动","🇯🇵 日本节点","🚀 节点选择","DIRECT"],
+    "🐦 Twitter/X":["🇯🇵 日本节点","🇺🇸 美国节点","🚀 节点选择","DIRECT"],
     "Ⓜ️ 微软服务":["DIRECT","🚀 节点选择"],
     "📧 邮件服务":["⚡ 普通自动","DIRECT"],
     "🍏 苹果服务":["DIRECT","🚀 节点选择"],
@@ -63,7 +64,8 @@ function main(config) {
     "🤖 Claude 专用":["claude.ai","claude.com","anthropic.com","claudeusercontent.com","claudemcpcontent.com","claude.app"],
     "🤖 AI 服务":["openai.com","chatgpt.com","oaistatic.com","oaiusercontent.com","perplexity.ai","poe.com"],
     "📹 油管视频":["youtube.com","youtu.be","googlevideo.com","ytimg.com"],
-    "🔍 谷歌服务":["google.com","googleapis.com","gstatic.com"],
+    "🐦 Twitter/X":["x.com","twitter.com","twimg.com","t.co","pscp.tv","periscope.tv"],
+    "🔍 谷歌服务":["google.com","googleapis.com","gstatic.com","googleusercontent.com","ggpht.com","gmail.com","googlemail.com"],
     "🐱 代码托管":["github.com","githubusercontent.com","gitlab.com"],
     "📲 电报消息":["telegram.org","t.me"],
     "Ⓜ️ 微软服务":["microsoft.com","windows.com"],
